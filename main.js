@@ -4,10 +4,12 @@ Inside the function this is represented by name 'callback'
 As such data becomes callback(JSON.parse(this.responseText));
 */
 
-function getData(callback) {
+const baseURL = "https://ci-swapi.herokuapp.com/api/";
+
+function getData(type, callback) {
   let xhr = new XMLHttpRequest();
 
-  xhr.open("GET", "https://ci-swapi.herokuapp.com/api/");
+  xhr.open("GET", baseURL + type + "/");
   xhr.send();
 
   xhr.onreadystatechange = function () {
@@ -17,8 +19,8 @@ function getData(callback) {
   };
 }
 
-function printDataToConsole(data) {
-  console.log(data)
+function writeToDocument(type) {
+  getData(type, function (data) {
+    document.getElementById("data").innerHTML = data;
+  })
 }
-
-getData(printDataToConsole);

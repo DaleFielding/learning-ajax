@@ -25,6 +25,13 @@
    "terminal.integrated.gpuAcceleration": "canvas",
    "editor.defaultFormatter": "HookyQR.beautify",
    "cSpell.words": [
+      "starships",
       "swapi"
-   ]
+   ],
+   "workbench.colorCustomizations": {
+      "activityBar.background": "#1C2C56",
+      "titleBar.activeBackground": "#273D78",
+      "titleBar.activeForeground": "#F9FAFD"
+   },
+   "livePreview.defaultPreviewPath": "/index.html"
 }
