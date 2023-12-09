@@ -1,9 +1,3 @@
-/*
-printDataToConsole(data) is passed as a parameter to getData. 
-Inside the function this is represented by name 'callback'
-As such data becomes callback(JSON.parse(this.responseText));
-*/
-
 const baseURL = "https://ci-swapi.herokuapp.com/api/";
 
 function getData(type, callback) {
@@ -20,7 +14,13 @@ function getData(type, callback) {
 }
 
 function writeToDocument(type) {
+  let element = document.getElementById("data");
+  element.innerHTML = "";
   getData(type, function (data) {
-    document.getElementById("data").innerHTML = data;
+    data = data.results;
+
+    data.forEach(function (item) {
+      element.innerHTML += "<p>" + item.name + "</p>";
+    })
   })
 }
