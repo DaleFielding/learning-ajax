@@ -35,9 +35,11 @@ function writeToDocument(type) {
       let dataRow = [];
       Object.keys(item).forEach(function (key) {
         // ${item[key]} gets the value of the key
-        dataRow.push(`<td>${item[key]}</td>`)
+        let rowData = item[key].toString();
+        let truncatedData = rowData.substring(0, 15);
+        dataRow.push(`<td>${truncatedData}</td>`)
       })
-      tableRows.push(dataRow);
+      tableRows.push(`<tr>${dataRow}</tr>`);
     })
     element.innerHTML = `<table>${tableHeaders}${tableRows}</table>`;
   })
