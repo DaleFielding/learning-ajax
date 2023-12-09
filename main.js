@@ -56,6 +56,6 @@ function writeToDocument(url) {
       });
       tableRows.push(`<tr>${dataRow}</tr>`);
     });
-    element.innerHTML = `<table>${tableHeaders}${tableRows}</table>${pagination}`;
+    element.innerHTML = `<table>${tableHeaders}${tableRows}</table>${pagination}`.replace(/,/g, ""); //this regex removes all the commas
   })
 }
