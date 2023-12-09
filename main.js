@@ -13,14 +13,32 @@ function getData(type, callback) {
   };
 }
 
+function getTableHeaders(obj) {
+  var tableHeaders = [];
+
+  Object.keys(obj).forEach(function (key) {
+    tableHeaders.push(`<td>${key}</td>`)
+  })
+  return `<tr>${tableHeaders}</tr>`;
+}
+
 function writeToDocument(type) {
+  let tableRows = [];
   let element = document.getElementById("data");
   element.innerHTML = "";
+
   getData(type, function (data) {
     data = data.results;
+    let tableHeaders = getTableHeaders(data[0]);
 
     data.forEach(function (item) {
-      element.innerHTML += "<p>" + item.name + "</p>";
+      let dataRow = [];
+      Object.keys(item).forEach(function (key) {
+        // ${item[key]} gets the value of the key
+        dataRow.push(`<td>${item[key]}</td>`)
+      })
+      tableRows.push(dataRow);
     })
+    element.innerHTML = `<table>${tableHeaders}${tableRows}</table>`;
   })
 }

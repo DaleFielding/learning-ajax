@@ -1,4 +1,4 @@
-##Created for the purpose of learning how to consume APIs using JavaScript with CI
+## Created for the purpose of learning how to consume APIs using JavaScript with CI
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
